@@ -1,4 +1,4 @@
-#include "include/cub3d.h"
+#include "cub3d.h"
 
 void	initialize_mlx(t_mlx_info *mlx_info)
 {

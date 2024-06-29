@@ -1,4 +1,4 @@
-#include "include/cub3d.h"
+#include "cub3d.h"
 
 void	game(t_cub3d *info)
 {

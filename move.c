@@ -1,4 +1,4 @@
-#include "include/cub3d.h"
+#include "cub3d.h"
 
 bool	is_not_wall(t_player_info *player_info, char **map, double one_step, int step_direction)
 {

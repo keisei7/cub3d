@@ -10,7 +10,8 @@
 # include <math.h>
 # include <errno.h>
 
-# include "../minilibx-mms/mlx.h"
+//# include "../minilibx_mms_20200219/mlx.h"
+# include "mlx.h"
 
 # include "xmalloc.h"
 # include "get_next_line.h"
@@ -42,6 +43,7 @@ typedef struct	s_mlx_info
 
 typedef struct	s_map_info
 {
+	char	**input;
 	char	**map;
 	size_t	map_height;
 	size_t	map_width;
@@ -87,8 +89,8 @@ typedef struct s_player_info
 // use it in hook handler
 typedef struct	s_cub3d
 {
-	t_mlx_info		mlx_info;
 	t_map_info		map_info;
+	t_mlx_info		mlx_info;
 	t_player_info	player_info;
 }	t_cub3d;
 

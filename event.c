@@ -1,4 +1,4 @@
-#include "include/cub3d.h"
+#include "cub3d.h"
 
 static void	render_next_image(t_mlx_info *mlx_info, t_cub3d *info)
 {

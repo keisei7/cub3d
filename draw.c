@@ -1,4 +1,4 @@
-#include "include/cub3d.h"
+#include "cub3d.h"
 
 int	get_wall_color(int wall_side)
 {

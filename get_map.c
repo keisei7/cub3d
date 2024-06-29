@@ -1,4 +1,4 @@
-#include "include/cub3d.h"
+#include "cub3d.h"
 
 size_t	get_map_height(char *filename)
 {
@@ -43,6 +43,33 @@ size_t	get_map_width(char *filename)
 	return (width);
 }
 
+char	*ft_strdup(char *str)
+{
+	size_t	count;
+	char	*ptr;
+
+	count = 0;
+	while (str[count])
+		count++;
+	if (str == NULL)
+		return (0);
+	ptr = (char *)xmalloc(sizeof(char) * (count + 1));
+	count = 0;
+	if (ptr != NULL)
+	{
+		while (str[count] != '\0')
+		{
+			ptr[count] = str[count];
+			count++;
+		}
+		ptr[count] = '\0';
+	}
+	return (ptr);
+}
+
+
+//open close するのは一回だけにしたい。
+//その他、情報をうまく保持できるよう、データ構造自体から変えたい。
 void	get_map_info(t_map_info *map_info, char *filename)
 {
 	int		fd;
@@ -60,7 +87,7 @@ void	get_map_info(t_map_info *map_info, char *filename)
 		line = get_next_line(fd);
 		if (!line)
 			break ;
-		map_info->map[i++] = strdup(line); // have to handle the space in tetris shape map.
+		map_info->map[i++] = ft_strdup(line); // have to handle the space in tetris shape map.
 		free(line);
 	}
 	map_info->map[i] = NULL;

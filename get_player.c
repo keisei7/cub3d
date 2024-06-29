@@ -1,4 +1,4 @@
-#include "include/cub3d.h"
+#include "cub3d.h"
 
 static bool	is_player(char map_elem)
 {
@@ -31,23 +31,33 @@ static void	get_player_direction(t_player_info *player_info, char player_directi
 	}
 }
 
+int	ft_strlen(const char *str)
+{
+	int	len;
+
+	len = 0;
+	while (str[len])
+		len++;
+	return (len);
+}
+
 static void	get_player_position(t_player_info *player_info, t_map_info *map_info)
 {
-	size_t	x;
+	int	x;
 	size_t	y;
 
 	y = 0;
 	while (y < map_info->map_height)
 	{
 		x = 0;
-		while (x < map_info->map_width)
+		while (x < ft_strlen(map_info->map[y]))
 		{
 			// if there are no player ?? is it handled in init.c ?
 			if (is_player(map_info->map[y][x]))
 				break ;
 			x++;
 		}
-		if (x != map_info->map_width)
+		if (x < ft_strlen(map_info->map[y]))
 			break ;
 		y++;
 	}
